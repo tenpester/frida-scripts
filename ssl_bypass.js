@@ -7,7 +7,7 @@ var SSL_VERIFY_NONE = 0;
 var ssl_ctx_set_custom_verify;
 var ssl_get_psk_identity;
 
-/* Create SSL_CTX_set_custom_verify NativeFunction 
+/* Create SSL_CTX_set_custom_verify NativeFunction
 *  Function signature https://github.com/google/boringssl/blob/7540cc2ec0a5c29306ed852483f833c61eddf133/include/openssl/ssl.h#L2294
 */
 ssl_ctx_set_custom_verify = new NativeFunction(
@@ -15,7 +15,7 @@ ssl_ctx_set_custom_verify = new NativeFunction(
 	'void', ['pointer', 'int', 'pointer']
 );
 
-/* Create SSL_get_psk_identity NativeFunction 
+/* Create SSL_get_psk_identity NativeFunction
 * Function signature https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_get_psk_identity
 */
 ssl_get_psk_identity = new NativeFunction(
@@ -45,7 +45,7 @@ function bypassSSL(){
 	Interceptor.replace(ssl_get_psk_identity, new NativeCallback(function(ssl) {
 		return "notarealPSKidentity";
 	}, 'pointer', ['pointer']));
-	
+
 }
 
 bypassSSL();

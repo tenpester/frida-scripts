@@ -1,1 +1,1 @@
-#use full scripts for mobile app testing
+#usefull scripts for mobile app testing
